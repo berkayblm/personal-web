@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import { SiGoogle, SiInstagram } from 'react-icons/si';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiInstagram } from 'react-icons/si';
 
 function Contact() {
     return (
@@ -14,18 +14,16 @@ function Contact() {
                     <button type="submit" className="bg-teal-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-teal-600 transition">Send Message</button>
                 </form>
                 <div className="mt-8 flex justify-center space-x-6">
-                <a href="https://github.com/yourusername" className="text-teal-500 hover:text-teal-600 transition">
+                <a href="https://github.com/berkayblm" className="text-teal-500 hover:text-teal-600 transition">
                 <FaGithub size={48} />
             </a>
-            <a href="https://linkedin.com/in/yourusername" className="text-teal-500 hover:text-teal-600 transition">
+            <a href="https://www.linkedin.com/in/berkay-bilimli-9860911b6/" className="text-teal-500 hover:text-teal-600 transition">
                 <FaLinkedin size={48} />
             </a>
-            <a href="https://twitter.com/yourusername" className="text-teal-500 hover:text-teal-600 transition">
+            <a href="https://www.instagram.com/berkay_bilimli/" className="text-teal-500 hover:text-teal-600 transition">
                 <SiInstagram size={48} />
             </a>
-            <a href="https://twitter.com/yourusername" className="text-teal-500 hover:text-teal-600 transition">
-                <SiGoogle size={48} />
-            </a>
+            
                 </div>
             </div>
         </section>
