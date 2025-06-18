@@ -1,7 +1,9 @@
 import React from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCertificate, FaUser, FaStar } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 function About() {
+    const { t } = useTranslation();
     return (
         <section id="about" className="py-20 bg-gradient-to-r from-teal-50 to-blue-50">
             <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-12 px-6">
@@ -13,23 +15,26 @@ function About() {
                 </div>
                 {/* Info Card */}
                 <div className="bg-white rounded-2xl shadow-xl p-8 flex-1">
-                    <h2 className="text-4xl font-extrabold text-teal-600 mb-2">Berkay Bilimli</h2>
-                    <p className="text-lg text-gray-700 mb-4">Software Engineer & Backend Developer</p>
+                    <h2 className="text-4xl font-extrabold text-teal-600 mb-2">{t('about.name')}</h2>
+                    <p className="text-lg text-gray-700 mb-4">{t('about.role')}</p>
                     <div className="flex flex-wrap gap-4 mb-4">
                         <span className="flex items-center text-gray-600"><FaEnvelope className="mr-2 text-teal-500" /> berkayant4@gmail.com</span>
                         <span className="flex items-center text-gray-600"><FaPhone className="mr-2 text-teal-500" /> +90-536-791-4920</span>
-                        <span className="flex items-center text-gray-600"><FaMapMarkerAlt className="mr-2 text-teal-500" /> Izmir, Turkey</span>
+                        <span className="flex items-center text-gray-600"><FaMapMarkerAlt className="mr-2 text-teal-500" /> {t('about.location')}</span>
                     </div>
                     <p className="mb-4 text-gray-700">
-                        I'm a passionate software engineer specializing in backend and full-stack development. Experienced in Java, SQL, JavaScript, TypeScript, and frameworks like Spring Boot, React.js. Currently pursuing a BSc in Computer Engineering at Ege University (GPA: 3.3/4.0).
+                        {t('about.description')}
                     </p>
                     <div className="flex flex-wrap gap-4 mb-4">
-                        <span className="flex items-center text-gray-600"><FaStar className="mr-2 text-yellow-500" /> Microservices, REST APIs, Cloud, Agile</span>
-                        <span className="flex items-center text-gray-600"><FaStar className="mr-2 text-yellow-500" /> Database Management, Testing</span>
+                        {t('about.skills', { returnObjects: true })[0] && (
+                            <span className="flex items-center text-gray-600"><FaStar className="mr-2 text-yellow-500" /> {t('about.skills', { returnObjects: true })[0]}</span>
+                        )}
+                        {t('about.skills', { returnObjects: true })[1] && (
+                            <span className="flex items-center text-gray-600"><FaStar className="mr-2 text-yellow-500" /> {t('about.skills', { returnObjects: true })[1]}</span>
+                        )}
                     </div>
-                    
                     <div className="flex flex-wrap gap-4">
-                        <span className="flex items-center text-gray-600"><FaStar className="mr-2 text-yellow-500" /> Interests: Guitar, Movies, Languages, Outdoor Sports</span>
+                        <span className="flex items-center text-gray-600"><FaStar className="mr-2 text-yellow-500" /> {t('about.interests')}</span>
                     </div>
                 </div>
             </div>

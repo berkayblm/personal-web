@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 function Home() {
+    const { t } = useTranslation();
     return (
         <section id="home" className="h-screen flex items-center justify-center bg-gradient-to-r from-teal-400 to-blue-500">
             <div className="text-center text-white">
@@ -11,7 +13,7 @@ function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
                 >
-                    Berkay Bilimli
+                    {t('home.title')}
                 </motion.h1>
                 <motion.p 
                     className="mt-4 text-2xl"
@@ -19,7 +21,7 @@ function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
-                    Software Engineer | Backend Developer 
+                    {t('home.subtitle')}
                 </motion.p>
                 <motion.a 
                     href="#about" 
@@ -28,7 +30,7 @@ function Home() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1 }}
                 >
-                    Learn More
+                    {t('home.learnMore')}
                 </motion.a>
             </div>
         </section>

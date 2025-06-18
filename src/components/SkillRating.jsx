@@ -1,30 +1,30 @@
 import React from 'react';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaJava, FaPython, FaJsSquare, FaHtml5, FaCss3Alt, FaDatabase } from 'react-icons/fa';
 import { SiCsharp, SiTypescript } from 'react-icons/si';
+import { useTranslation } from 'react-i18next';
 
 function SkillRating() {
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.2,
     });
+    const { t } = useTranslation();
 
     const skills = [
-        { name: 'Java', level: 90, icon: <FaJava size={30} color="#007991" /> },
-        { name: 'C#', level: 70, icon: <SiCsharp size={30} color="#007991" /> },
-        { name: 'Python', level: 70, icon: <FaPython size={30} color="#007991" /> },
-        { name: 'JavaScript', level: 75, icon: <FaJsSquare size={30} color="#007991" /> },
-        { name: 'TypeScript', level: 50, icon: <SiTypescript size={30} color="#007991" /> },
-        { name: 'HTML/CSS', level: 75, icon: (
+        { name: t('skills.java'), icon: <FaJava size={30} color="#007991" /> },
+        { name: t('skills.csharp'), icon: <SiCsharp size={30} color="#007991" /> },
+        { name: t('skills.python'), icon: <FaPython size={30} color="#007991" /> },
+        { name: t('skills.javascript'), icon: <FaJsSquare size={30} color="#007991" /> },
+        { name: t('skills.typescript'), icon: <SiTypescript size={30} color="#007991" /> },
+        { name: t('skills.htmlcss'), icon: (
             <div className="flex justify-center">
                 <FaHtml5 size={30} color="#e44d26" />
                 <FaCss3Alt size={30} color="#1572b6" className="ml-2" />
             </div>
         ) },
-        { name: 'SQL', level: 85, icon: <FaDatabase size={30} color="#007991" /> },
+        { name: t('skills.sql'), icon: <FaDatabase size={30} color="#007991" /> },
     ];
 
     return (
@@ -36,7 +36,7 @@ function SkillRating() {
                     animate={{ opacity: inView ? 1 : 0 }}
                     transition={{ duration: 1 }}
                 >
-                    Skills
+                    {t('navbar.skills')}
                 </motion.h2>
                 <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-10">
                     {skills.map((skill, index) => (
@@ -50,18 +50,7 @@ function SkillRating() {
                             <div className="mb-4 flex justify-center">
                                 {skill.icon}
                             </div>
-                            <CircularProgressbar 
-                                value={inView ? skill.level : 0} 
-                                text={`${skill.level}%`} 
-                                styles={buildStyles({
-                                    pathTransitionDuration: 1.5,
-                                    pathColor: `#007991`,
-                                    textColor: '#007991',
-                                    trailColor: '#d6d6d6',
-                                    backgroundColor: '#3e98c7',
-                                })}
-                            />
-                            <p className="mt-4 text-lg font-medium">{skill.name}</p>
+                            <p className="mt-2 text-lg font-medium">{skill.name}</p>
                         </motion.div>
                     ))}
                 </div>
