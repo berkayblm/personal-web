@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaReact, FaDocker, FaAws } from 'react-icons/fa';
-import { SiSpringboot, SiKubernetes, SiMysql, SiPostgresql,SiMicrosoftsqlserver,SiVuedotjs, SiRedis, SiFirebase } from 'react-icons/si';
+import { SiSpringboot, SiKubernetes, SiMysql, SiPostgresql,SiMicrosoftsqlserver,SiVuedotjs, SiRedis, SiFirebase, SiAndroidstudio } from 'react-icons/si';
 import { DiGit } from 'react-icons/di';
 import { motion } from 'framer-motion';
 
@@ -13,6 +13,7 @@ function ToolsTechnologies() {
         { name: 'Kubernetes', icon: <SiKubernetes size={30} color="#326CE5" /> },
         { name: 'Git', icon: <DiGit size={30} color="#F05032" /> },
         { name: 'Vue.js', icon: <SiVuedotjs size={30} color="#6DB33F" /> },
+        { name: 'Android Studio', icon: <SiAndroidstudio size={30} color="#3DDC84" /> },
         { name: 'MySQL', icon: <SiMysql size={30} color="#4479A1" /> },
         { name: 'PostgreSQL', icon: <SiPostgresql size={30} color="#336791" /> },
         { name: 'MsSQL', icon: <SiMicrosoftsqlserver size={30} color="#336791" /> },

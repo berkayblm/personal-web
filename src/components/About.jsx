@@ -1,18 +1,36 @@
 import React from 'react';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCertificate, FaUser, FaStar } from 'react-icons/fa';
 
 function About() {
     return (
-        <section id="about" className="py-20 bg-gray-100">
-            <div className="container mx-auto">
-                <h2 className="text-3xl font-bold text-teal-600 text-center">About Me</h2>
-                <div className="mt-10 space-y-6 text-lg text-gray-700 mr-10 ml-10">
-                    <p>
-                        Hello! I’m Berkay Bilimli, a passionate and dedicated software engineer with a strong background in backend and frontend development. I hold a Bachelor's degree in Computer Engineering with a GPA of 3.4, which has provided me with a solid foundation in software development principles and practices.
+        <section id="about" className="py-20 bg-gradient-to-r from-teal-50 to-blue-50">
+            <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-12 px-6">
+                {/* Profile Image Placeholder */}
+                <div className="flex-shrink-0 mb-8 md:mb-0">
+                    <div className="w-40 h-40 rounded-full bg-gradient-to-br from-teal-400 to-blue-400 flex items-center justify-center shadow-lg border-4 border-white">
+                        <FaUser className="text-white text-7xl" />
+                    </div>
+                </div>
+                {/* Info Card */}
+                <div className="bg-white rounded-2xl shadow-xl p-8 flex-1">
+                    <h2 className="text-4xl font-extrabold text-teal-600 mb-2">Berkay Bilimli</h2>
+                    <p className="text-lg text-gray-700 mb-4">Software Engineer & Backend Developer</p>
+                    <div className="flex flex-wrap gap-4 mb-4">
+                        <span className="flex items-center text-gray-600"><FaEnvelope className="mr-2 text-teal-500" /> berkayant4@gmail.com</span>
+                        <span className="flex items-center text-gray-600"><FaPhone className="mr-2 text-teal-500" /> +90-536-791-4920</span>
+                        <span className="flex items-center text-gray-600"><FaMapMarkerAlt className="mr-2 text-teal-500" /> Izmir, Turkey</span>
+                    </div>
+                    <p className="mb-4 text-gray-700">
+                        I'm a passionate software engineer specializing in backend and full-stack development. Experienced in Java, SQL, JavaScript, TypeScript, and frameworks like Spring Boot, React.js. Currently pursuing a BSc in Computer Engineering at Ege University (GPA: 3.3/4.0).
                     </p>
-                    <p>
-                        Throughout my career, I’ve had the privilege of working on various challenging projects that have honed my skills in Java, C#, Python, JavaScript, TypeScript, HTML, CSS, SQL, and frameworks like Spring Boot, React.js, and Asp.Net. My expertise extends to optimizing backend applications and enhancing system performance, where I’ve consistently delivered scalable, efficient, and maintainable code.
-                    </p>
+                    <div className="flex flex-wrap gap-4 mb-4">
+                        <span className="flex items-center text-gray-600"><FaStar className="mr-2 text-yellow-500" /> Microservices, REST APIs, Cloud, Agile</span>
+                        <span className="flex items-center text-gray-600"><FaStar className="mr-2 text-yellow-500" /> Database Management, Testing</span>
+                    </div>
                     
+                    <div className="flex flex-wrap gap-4">
+                        <span className="flex items-center text-gray-600"><FaStar className="mr-2 text-yellow-500" /> Interests: Guitar, Movies, Languages, Outdoor Sports</span>
+                    </div>
                 </div>
             </div>
         </section>

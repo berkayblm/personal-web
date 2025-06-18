@@ -27,9 +27,9 @@ function Navbar() {
         { name: 'About', route: '/', sectionId: 'about' },
         { name: 'Education', route: '/', sectionId: 'education' },
         { name: 'Experience', route: '/', sectionId: 'experience' },
+        { name: 'Projects', route: '/', sectionId: 'projects' },
         { name: 'Skills', route: '/', sectionId: 'skills' },
         { name: 'Contact', route: '/', sectionId: 'contact' },
-    
     ];
 
     return (

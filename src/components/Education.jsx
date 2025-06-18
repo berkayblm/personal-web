@@ -11,11 +11,11 @@ function Education() {
     const education = [
         {
             degree: 'Bachelor of Computer Engineering',
-            institution: 'Izmir University, Izmir, Turkey',
-            period: 'Sept 2020 - Present',
+            institution: 'Ege University, Izmir, Turkey',
+            period: 'Sep 2020 - Present',
             details: [
-                'GPA: 3.4',
-                
+                'GPA: 3.3',
+                'Courses: OOP, Java, Analysis of Algorithms, Operating Systems, Data Structures, Database Management, Microarchitecture, Software Analysis and Design, Software Engineering, Microservices, Backend Engineering.'
             ],
         },
     ];

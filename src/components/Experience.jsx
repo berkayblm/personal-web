@@ -11,15 +11,26 @@ function Experience() {
                 <VerticalTimeline>
                     <VerticalTimelineElement
                         className="vertical-timeline-element--work"
+                        contentStyle={{ background: 'rgb(0, 150, 136)', color: '#ffffff' }}
+                        contentArrowStyle={{ borderRight: '7px solid  rgb(0, 150, 136)' }}
+                        date={<span style={{ color: 'rgb(0, 150, 136)' }}>Feb 2025 - Present</span>}
+                        iconStyle={{ background: 'rgb(0, 150, 136)', color: '#ffffff' }}
+                        icon={<FaBriefcase />}
+                    >
+                        <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>Software Engineering Intern</h3>
+                        <h4 className="vertical-timeline-element-subtitle" style={{ color: '#ffffff' }}>Yapı Kredi Teknoloji, Kocaeli, Turkey</h4>
+                    </VerticalTimelineElement>
+
+                    <VerticalTimelineElement
+                        className="vertical-timeline-element--work"
                         contentStyle={{ background: 'rgb(33, 150, 243)', color: '#ffffff' }}
                         contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        date={<span style={{ color: 'rgb(33, 150, 243)' }}>Feb 2024 - Present</span>}
+                        date={<span style={{ color: 'rgb(33, 150, 243)' }}>Feb 2024 - Jan 2025</span>}
                         iconStyle={{ background: 'rgb(33, 150, 243)', color: '#ffffff' }}
                         icon={<FaBriefcase />}
                     >
-                        <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>Software Engineer</h3>
+                        <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>Software Engineer (Part-Time)</h3>
                         <h4 className="vertical-timeline-element-subtitle" style={{ color: '#ffffff' }}>Mobility Payment, Dubai, UAE</h4>
-                        
                     </VerticalTimelineElement>
 
                     <VerticalTimelineElement
@@ -30,25 +41,21 @@ function Experience() {
                         iconStyle={{ background: 'rgb(233, 30, 99)', color: '#ffffff' }}
                         icon={<FaBriefcase />}
                     >
-                        <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>Software Engineer</h3>
+                        <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>Software Engineer (Part-Time)</h3>
                         <h4 className="vertical-timeline-element-subtitle" style={{ color: '#ffffff' }}>TPR Information Technologies, Izmir, Turkey</h4>
-                        
                     </VerticalTimelineElement>
 
                     <VerticalTimelineElement
                         className="vertical-timeline-element--work"
                         contentStyle={{ background: 'rgb(76, 175, 80)', color: '#ffffff' }}
                         contentArrowStyle={{ borderRight: '7px solid  rgb(76, 175, 80)' }}
-                        date={<span style={{ color: 'rgb(76, 175, 80)   ' }}>Aug 2022 – Sep 2022</span>}
+                        date={<span style={{ color: 'rgb(76, 175, 80)' }}>Aug 2022 – Sep 2022</span>}
                         iconStyle={{ background: 'rgb(76, 175, 80)', color: '#ffffff' }}
                         icon={<FaBriefcase />}
                     >
                         <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>Finance 101 Intern</h3>
-                        <h4 className="vertical-timeline-element-subtitle" style={{ color: '#ffffff' }}>Finansbank, Istanbul, Turkey</h4>
-                        
+                        <h4 className="vertical-timeline-element-subtitle" style={{ color: '#ffffff' }}>QNB Finansbank, Istanbul, Turkey</h4>
                     </VerticalTimelineElement>
-
-                   
                 </VerticalTimeline>
             </div>
         </section>
