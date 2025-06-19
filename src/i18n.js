@@ -69,7 +69,8 @@ const resources = {
             description: [
               'A collaborative Android app for university exam preparation, featuring microservices, AI-powered recommendations, and a modern UI.'
             ],
-            tech: []
+            tech: [],
+            demo: 'https://youtu.be/udNuJvmDvvk'
           },
           {
             title: 'Conference Management System',
@@ -78,7 +79,8 @@ const resources = {
             description: [
               'A full-stack web platform for managing conferences, including paper submission, reviews, and participant registration.'
             ],
-            tech: []
+            tech: [],
+            repo: 'https://github.com/berkayblm/Conference_Management_System'
           },
           {
             title: 'Library App',
@@ -87,7 +89,8 @@ const resources = {
             description: [
               'An Android library app with user authentication, book listing, and PDF viewing, backed by a Spring Boot server.'
             ],
-            tech: []
+            tech: [],
+            repo: 'https://github.com/berkayblm/spring-library-hibernate-crud'
           }
         ]
       },
@@ -196,7 +199,8 @@ const resources = {
             description: [
               'Üniversite sınavlarına hazırlık için işbirlikçi bir Android uygulaması; mikroservisler, yapay zeka destekli öneriler ve modern bir arayüz sunar.'
             ],
-            tech: []
+            tech: [],
+            demo: 'https://youtu.be/udNuJvmDvvk'
           },
           {
             title: 'Konferans Yönetim Sistemi',
@@ -205,7 +209,8 @@ const resources = {
             description: [
               'Makale gönderimi, değerlendirme ve katılımcı kaydı dahil olmak üzere konferans yönetimi için tam kapsamlı bir web platformu.'
             ],
-            tech: []
+            tech: [],
+            repo: 'https://github.com/berkayblm/Conference_Management_System'
           },
           {
             title: 'Kütüphane Uygulaması',
@@ -214,7 +219,8 @@ const resources = {
             description: [
               'Kullanıcı kimlik doğrulama, kitap listeleme ve PDF görüntüleme özellikli bir Android kütüphane uygulaması; Spring Boot sunucusu ile desteklenmiştir.'
             ],
-            tech: []
+            tech: [],
+            repo: 'https://github.com/berkayblm/spring-library-hibernate-crud'
           }
         ]
       },

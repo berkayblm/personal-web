@@ -76,8 +76,8 @@ function Projects() {
               <div className="flex items-center justify-between mt-4">
                 <div className="flex space-x-2">{project.tech}</div>
                 <div className="flex space-x-2">
-                  {project.link && (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:text-teal-700 flex items-center">
+                  {project.repo && (
+                    <a href={project.repo} target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:text-teal-700 flex items-center">
                       <FaGithub size={22} className="mr-1" /> {t('projects.repo')}
                     </a>
                   )}
