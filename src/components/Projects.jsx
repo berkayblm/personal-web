@@ -48,14 +48,24 @@ function Projects() {
   const { t } = useTranslation();
   const projects = t('projects.items', { returnObjects: true });
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-white dark:bg-dark-bg transition-colors duration-200">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-teal-600 text-center">{t('navbar.projects')}</h2>
+        <div className="flex flex-col md:flex-row items-center justify-center mb-10">
+          <motion.h2 
+            className="text-3xl font-bold text-teal-600 dark:text-dark-accent text-center transition-colors duration-200"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            {t('navbar.projects')}
+          </motion.h2>
+        </div>
+        
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-6">
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
-              className="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col justify-between hover:shadow-2xl transition-shadow border border-gray-100"
+              className="bg-gray-50 dark:bg-dark-card rounded-xl shadow-lg p-6 flex flex-col justify-between hover:shadow-2xl transition-all duration-200 border border-gray-100 dark:border-dark-border"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -63,11 +73,11 @@ function Projects() {
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-teal-500">{project.title}</h3>
-                  <span className="text-xs text-gray-400">{project.date}</span>
+                  <h3 className="text-xl font-semibold text-teal-500 dark:text-dark-accent transition-colors duration-200">{project.title}</h3>
+                  <span className="text-xs text-gray-400 dark:text-dark-textSecondary transition-colors duration-200">{project.date}</span>
                 </div>
-                <div className="text-sm text-gray-500 mb-2">{project.location}</div>
-                <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                <div className="text-sm text-gray-500 dark:text-dark-textSecondary mb-2 transition-colors duration-200">{project.location}</div>
+                <ul className="list-disc list-inside text-gray-700 dark:text-dark-text mb-4 space-y-1 transition-colors duration-200">
                   {project.description.map((desc, i) => (
                     <li key={i}>{desc}</li>
                   ))}
@@ -77,12 +87,12 @@ function Projects() {
                 <div className="flex space-x-2">{project.tech}</div>
                 <div className="flex space-x-2">
                   {project.repo && (
-                    <a href={project.repo} target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:text-teal-700 flex items-center">
+                    <a href={project.repo} target="_blank" rel="noopener noreferrer" className="text-teal-500 dark:text-dark-accent hover:text-teal-700 dark:hover:text-white flex items-center transition-colors duration-200">
                       <FaGithub size={22} className="mr-1" /> {t('projects.repo')}
                     </a>
                   )}
                   {project.demo && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="ml-2 bg-teal-500 text-white px-3 py-1 rounded-md font-medium hover:bg-teal-600 transition text-sm">
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="ml-2 bg-teal-500 dark:bg-dark-accent text-white px-3 py-1 rounded-md font-medium hover:bg-teal-600 dark:hover:bg-blue-600 transition-colors duration-200 text-sm">
                       {t('projects.demo')}
                     </a>
                   )}

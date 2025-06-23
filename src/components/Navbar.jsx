@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { MenuIcon, XIcon, SunIcon, MoonIcon } from '@heroicons/react/outline';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../context/ThemeContext';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
+    const { isDarkMode, toggleTheme } = useTheme();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -38,7 +40,7 @@ function Navbar() {
     };
 
     return (
-        <nav className="bg-teal-600 fixed w-full z-10 top-0 shadow-lg">
+        <nav className="bg-teal-600 dark:bg-dark-surface fixed w-full z-10 top-0 shadow-lg transition-colors duration-200">
             <div className="container mx-auto flex items-center justify-between p-4">
                 <NavLink 
                     to="/" 
@@ -69,19 +71,43 @@ function Navbar() {
                                 </span>
                             )
                         ))}
+                        {/* Dark Mode Toggle */}
+                        <button
+                            onClick={toggleTheme}
+                            className="ml-4 p-2 text-white hover:text-teal-200 transition-colors duration-200"
+                            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                        >
+                            {isDarkMode ? (
+                                <SunIcon className="h-5 w-5" />
+                            ) : (
+                                <MoonIcon className="h-5 w-5" />
+                            )}
+                        </button>
                         {/* Language Switcher - Desktop only */}
                         <button
                             onClick={handleLanguageSwitch}
-                            className="ml-4 px-3 py-1 bg-white text-teal-600 rounded hover:bg-teal-100 transition text-sm font-semibold"
+                            className="ml-2 px-3 py-1 bg-white dark:bg-dark-card text-teal-600 dark:text-white rounded hover:bg-teal-100 dark:hover:bg-dark-border transition text-sm font-semibold"
                         >
                             {i18n.language === 'tr' ? 'EN' : 'TR'}
                         </button>
                     </div>
                     {/* Hamburger + Language Switcher for Mobile only */}
                     <div className="md:hidden flex items-center space-x-2 ml-2">
+                        {/* Dark Mode Toggle - Mobile */}
+                        <button
+                            onClick={toggleTheme}
+                            className="p-2 text-white hover:text-teal-200 transition-colors duration-200"
+                            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                        >
+                            {isDarkMode ? (
+                                <SunIcon className="h-5 w-5" />
+                            ) : (
+                                <MoonIcon className="h-5 w-5" />
+                            )}
+                        </button>
                         <button
                             onClick={handleLanguageSwitch}
-                            className="px-3 py-1 bg-white text-teal-600 rounded hover:bg-teal-100 transition text-sm font-semibold"
+                            className="px-3 py-1 bg-white dark:bg-dark-card text-teal-600 dark:text-white rounded hover:bg-teal-100 dark:hover:bg-dark-border transition text-sm font-semibold"
                         >
                             {i18n.language === 'tr' ? 'EN' : 'TR'}
                         </button>
@@ -98,7 +124,7 @@ function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-teal-600">
+                <div className="md:hidden bg-teal-600 dark:bg-dark-surface transition-colors duration-200">
                     <div className="px-4 pt-2 pb-3 space-y-1 sm:px-3">
                         {navItems.map((item, index) => (
                             item.route === '/blog' ? (

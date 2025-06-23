@@ -4,9 +4,12 @@ import { SiSpringboot, SiKubernetes, SiMysql, SiPostgresql,SiMicrosoftsqlserver,
 import { DiGit } from 'react-icons/di';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../context/ThemeContext';
 
 function ToolsTechnologies() {
     const { t } = useTranslation();
+    const { isDarkMode } = useTheme();
+    
     const tools = [
         { name: t('tools.spring'), icon: <SiSpringboot size={30} color="#6DB33F" /> },
         { name: t('tools.react'), icon: <FaReact size={30} color="#61DAFB" /> },
@@ -24,24 +27,23 @@ function ToolsTechnologies() {
     ];
 
     return (
-        <section id="tools-technologies" className="py-20 bg-gray-100">
+        <section id="tools-technologies" className="pt-10">
             <div className="container mx-auto">
-                <h2 className="text-3xl font-bold text-teal-600 text-center">{t('tools.title')}</h2>
+                <h2 className="text-3xl font-bold text-teal-600 dark:text-dark-accent text-center transition-colors duration-200">{t('tools.title')}</h2>
                 <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 mr-10 ml-10">
                     {tools.map((tool, index) => (
                         <motion.div
                             key={index}
-                            className="text-center bg-white p-4 rounded-lg shadow-md"
+                            className="text-center bg-white dark:bg-dark-card p-4 rounded-lg shadow-md transition-colors duration-200 hover:shadow-lg"
                             whileHover={{
                                 scale: 1.1,
-                                backgroundColor: '#E6FFFA',
                                 transition: { duration: 0.3 },
                             }}
                         >
                             <div className="flex justify-center mb-2">
                                 {tool.icon}
                             </div>
-                            <p className="text-lg font-medium">{tool.name}</p>
+                            <p className="text-lg font-medium text-gray-800 dark:text-dark-text transition-colors duration-200">{tool.name}</p>
                         </motion.div>
                     ))}
                 </div>

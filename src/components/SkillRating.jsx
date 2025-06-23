@@ -28,16 +28,19 @@ function SkillRating() {
     ];
 
     return (
-        <section ref={ref} id="skills-rating" className="py-20">
+        <section ref={ref} id="skills-rating" className="pb-10">
             <div className="container mx-auto text-center">
-                <motion.h2 
-                    className="text-3xl font-bold text-teal-600"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: inView ? 1 : 0 }}
-                    transition={{ duration: 1 }}
-                >
-                    {t('navbar.skills')}
-                </motion.h2>
+                <div className="flex flex-col md:flex-row items-center justify-center mb-10">
+                    <motion.h2 
+                        className="text-3xl font-bold text-teal-600 dark:text-dark-accent transition-colors duration-200"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: inView ? 1 : 0 }}
+                        transition={{ duration: 1 }}
+                    >
+                        {t('navbar.skills')}
+                    </motion.h2>
+                </div>
+                
                 <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-10">
                     {skills.map((skill, index) => (
                         <motion.div 
@@ -50,7 +53,7 @@ function SkillRating() {
                             <div className="mb-4 flex justify-center">
                                 {skill.icon}
                             </div>
-                            <p className="mt-2 text-lg font-medium">{skill.name}</p>
+                            <p className="mt-2 text-lg font-medium text-gray-800 dark:text-dark-text transition-colors duration-200">{skill.name}</p>
                         </motion.div>
                     ))}
                 </div>

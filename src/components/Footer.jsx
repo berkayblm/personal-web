@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 function Footer() {
     const { t } = useTranslation();
     return (
-        <footer className="bg-gray-800 py-6 mt-20">
+        <footer className="bg-gray-800 dark:bg-dark-surface py-6 transition-colors duration-200">
             <div className="container mx-auto text-center text-white">
                 <p>&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
                 <p>{t('footer.business')}</p>
