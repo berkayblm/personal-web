@@ -1,45 +1,135 @@
 import React from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCertificate, FaUser, FaStar } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+} from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
 function About() {
-    const { t } = useTranslation();
-    return (
-        <section id="about" className="py-20 bg-gradient-to-r from-teal-50 to-blue-50 dark:from-dark-bg dark:to-dark-surface transition-colors duration-200">
-            <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-12 px-6">
-                {/* Profile Image Placeholder */}
-                <div className="flex-shrink-0 mb-8 md:mb-0">
-                    <div className="w-40 h-40 rounded-full bg-gradient-to-br from-teal-400 to-blue-400 flex items-center justify-center shadow-lg border-4 border-white dark:border-dark-card transition-colors duration-200">
-                        <FaUser className="text-white text-7xl" />
-                    </div>
+  const { t } = useTranslation();
+
+  return (
+    <section
+      id="about"
+      className="relative py-24 bg-slate-50 dark:bg-dark-bg transition-colors duration-300"
+    >
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <p className="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-300">
+            {t('sections.about.eyebrow')}
+          </p>
+          <h2 className="section-title mt-2 text-4xl md:text-5xl text-slate-900 dark:text-dark-text">
+            {t('sections.about.headlineA')} <span className="text-gradient">{t('sections.about.headlineB')}</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 items-start">
+          {/* Avatar / contact column */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="md:col-span-1"
+          >
+            <div className="relative bg-white dark:bg-dark-card rounded-2xl p-6 shadow-lg border border-slate-200/60 dark:border-dark-border card-hover">
+              <div className="relative mx-auto w-36 h-36 mb-4 group">
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-brand-500 to-accent-500 blur-md opacity-70 animate-float" />
+                <div className="relative w-36 h-36 rounded-full p-[3px] bg-gradient-to-br from-brand-500 to-accent-500 shadow-glow">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/profile.png`}
+                    alt="Berkay Bilimli"
+                    className="w-full h-full rounded-full object-cover border-4 border-white dark:border-dark-card transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
                 </div>
-                {/* Info Card */}
-                <div className="bg-white dark:bg-dark-card rounded-2xl shadow-xl p-8 flex-1 transition-colors duration-200">
-                    <h2 className="text-4xl font-extrabold text-teal-600 dark:text-dark-accent mb-2 transition-colors duration-200">{t('about.name')}</h2>
-                    <p className="text-lg text-gray-700 dark:text-dark-text mb-4 transition-colors duration-200">{t('about.role')}</p>
-                    <div className="flex flex-wrap gap-4 mb-4">
-                        <span className="flex items-center text-gray-600 dark:text-dark-textSecondary transition-colors duration-200"><FaEnvelope className="mr-2 text-teal-500 dark:text-dark-accent" /> berkayant4@gmail.com</span>
-                        <span className="flex items-center text-gray-600 dark:text-dark-textSecondary transition-colors duration-200"><FaPhone className="mr-2 text-teal-500 dark:text-dark-accent" /> +90-536-791-4920</span>
-                        <span className="flex items-center text-gray-600 dark:text-dark-textSecondary transition-colors duration-200"><FaMapMarkerAlt className="mr-2 text-teal-500 dark:text-dark-accent" /> {t('about.location')}</span>
-                    </div>
-                    <p className="mb-4 text-gray-700 dark:text-dark-text transition-colors duration-200">
-                        {t('about.description')}
-                    </p>
-                    <div className="flex flex-wrap gap-4 mb-4">
-                        {t('about.skills', { returnObjects: true })[0] && (
-                            <span className="flex items-center text-gray-600 dark:text-dark-textSecondary transition-colors duration-200"><FaStar className="mr-2 text-yellow-500" /> {t('about.skills', { returnObjects: true })[0]}</span>
-                        )}
-                        {t('about.skills', { returnObjects: true })[1] && (
-                            <span className="flex items-center text-gray-600 dark:text-dark-textSecondary transition-colors duration-200"><FaStar className="mr-2 text-yellow-500" /> {t('about.skills', { returnObjects: true })[1]}</span>
-                        )}
-                    </div>
-                    <div className="flex flex-wrap gap-4">
-                        <span className="flex items-center text-gray-600 dark:text-dark-textSecondary transition-colors duration-200"><FaStar className="mr-2 text-yellow-500" /> {t('about.interests')}</span>
-                    </div>
+              </div>
+              <h3 className="text-center text-xl font-display font-semibold text-slate-900 dark:text-dark-text">
+                {t('about.name')}
+              </h3>
+              <p className="text-center text-sm text-slate-500 dark:text-dark-textSecondary mb-4">
+                {t('about.role')}
+              </p>
+
+              <div className="space-y-2 text-sm">
+                <a
+                  href="mailto:berkayant4@gmail.com"
+                  className="flex items-center gap-2 text-slate-600 dark:text-dark-textSecondary hover:text-brand-600 dark:hover:text-brand-300 transition-colors"
+                >
+                  <FaEnvelope className="text-brand-500" /> berkayant4@gmail.com
+                </a>
+                <div className="flex items-center gap-2 text-slate-600 dark:text-dark-textSecondary">
+                  <FaPhone className="text-brand-500" /> +90 536 791 4920
                 </div>
+                <div className="flex items-center gap-2 text-slate-600 dark:text-dark-textSecondary">
+                  <FaMapMarkerAlt className="text-brand-500" /> {t('about.location')}
+                </div>
+              </div>
+
+              <div className="mt-5 flex justify-center gap-3">
+                <a
+                  href="https://github.com/berkayblm"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2 rounded-lg border border-slate-200 dark:border-dark-border text-slate-600 dark:text-dark-textSecondary hover:text-brand-600 dark:hover:text-brand-300 hover:border-brand-500 transition-colors"
+                >
+                  <FaGithub size={18} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/berkay-bilimli-9860911b6/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2 rounded-lg border border-slate-200 dark:border-dark-border text-slate-600 dark:text-dark-textSecondary hover:text-brand-600 dark:hover:text-brand-300 hover:border-brand-500 transition-colors"
+                >
+                  <FaLinkedin size={18} />
+                </a>
+              </div>
             </div>
-        </section>
-    );
+          </motion.div>
+
+          {/* Description + stats */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="md:col-span-2"
+          >
+            <div className="bg-white dark:bg-dark-card rounded-2xl p-8 shadow-lg border border-slate-200/60 dark:border-dark-border">
+              <p className="text-slate-700 dark:text-dark-text leading-relaxed">
+                {t('about.description')}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {t('about.skills', { returnObjects: true }).map((s, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1.5 text-xs font-mono rounded-full bg-brand-500/10 text-brand-700 dark:text-brand-300 border border-brand-500/20"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+
+              <p className="mt-5 text-sm text-slate-500 dark:text-dark-textSecondary italic">
+                {t('about.interests')}
+              </p>
+            </div>
+
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default About;

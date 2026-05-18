@@ -1,120 +1,93 @@
 import React from 'react';
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import { motion } from 'framer-motion';
 import { FaBriefcase } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '../context/ThemeContext';
 
 function Experience() {
-    const { t } = useTranslation();
-    const { isDarkMode } = useTheme();
+  const { t } = useTranslation();
 
-    // Define colors for light and dark modes
-    const colors = {
-        light: {
-            teal: 'rgb(0, 150, 136)',
-            blue: 'rgb(33, 150, 243)',
-            pink: 'rgb(233, 30, 99)',
-            green: 'rgb(76, 175, 80)'
-        },
-        dark: {
-            teal: '#00B4D8',
-            blue: '#3B82F6',
-            pink: '#EC4899',
-            green: '#10B981'
-        }
-    };
+  const items = [
+    { key: 'intern', accent: 'from-brand-500 to-cyan-400' },
+    { key: 'parttime1', accent: 'from-accent-500 to-fuchsia-400' },
+    { key: 'parttime2', accent: 'from-pink-500 to-rose-400' },
+    { key: 'intern2', accent: 'from-emerald-500 to-teal-400' },
+  ].map((it) => ({
+    ...it,
+    date: t(`experience.${it.key}.date`),
+    title: t(`experience.${it.key}.title`),
+    company: t(`experience.${it.key}.company`),
+  }));
 
-    const currentColors = isDarkMode ? colors.dark : colors.light;
+  return (
+    <section
+      id="experience"
+      className="relative py-24 bg-slate-50 dark:bg-dark-bg transition-colors duration-300"
+    >
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <p className="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-300">
+            {t('sections.experience.eyebrow')}
+          </p>
+          <h2 className="section-title mt-2 text-4xl md:text-5xl text-slate-900 dark:text-dark-text">
+            {t('sections.experience.headlineA')} <span className="text-gradient">{t('sections.experience.headlineB')}</span>
+          </h2>
+        </motion.div>
 
-    return (
-        <section id="experience" className="py-20 bg-gray-100 dark:bg-dark-bg transition-colors duration-200">
-            <div className="container mx-auto">
-                <h2 className="text-3xl font-bold text-teal-600 dark:text-dark-accent text-center transition-colors duration-200">{t('navbar.experience')}</h2>
-                <VerticalTimeline>
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ 
-                            background: currentColors.teal, 
-                            color: '#ffffff',
-                            boxShadow: isDarkMode ? '0 4px 8px rgba(0, 180, 216, 0.3)' : '0 4px 8px rgba(0, 150, 136, 0.3)'
-                        }}
-                        contentArrowStyle={{ borderRight: `7px solid ${currentColors.teal}` }}
-                        date={<span style={{ color: currentColors.teal }}>{t('experience.intern.date')}</span>}
-                        iconStyle={{ 
-                            background: currentColors.teal, 
-                            color: '#ffffff',
-                            boxShadow: isDarkMode ? '0 0 0 3px rgba(0, 180, 216, 0.3)' : '0 0 0 3px rgba(0, 150, 136, 0.3)'
-                        }}
-                        icon={<FaBriefcase />}
-                    >
-                        <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>{t('experience.intern.title')}</h3>
-                        <h4 className="vertical-timeline-element-subtitle" style={{ color: '#ffffff' }}>{t('experience.intern.company')}</h4>
-                    </VerticalTimelineElement>
+        <div className="relative max-w-4xl mx-auto">
+          {/* Vertical line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-500/40 via-accent-500/40 to-transparent md:-translate-x-px" />
 
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ 
-                            background: currentColors.blue, 
-                            color: '#ffffff',
-                            boxShadow: isDarkMode ? '0 4px 8px rgba(59, 130, 246, 0.3)' : '0 4px 8px rgba(33, 150, 243, 0.3)'
-                        }}
-                        contentArrowStyle={{ borderRight: `7px solid ${currentColors.blue}` }}
-                        date={<span style={{ color: currentColors.blue }}>{t('experience.parttime1.date')}</span>}
-                        iconStyle={{ 
-                            background: currentColors.blue, 
-                            color: '#ffffff',
-                            boxShadow: isDarkMode ? '0 0 0 3px rgba(59, 130, 246, 0.3)' : '0 0 0 3px rgba(33, 150, 243, 0.3)'
-                        }}
-                        icon={<FaBriefcase />}
-                    >
-                        <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>{t('experience.parttime1.title')}</h3>
-                        <h4 className="vertical-timeline-element-subtitle" style={{ color: '#ffffff' }}>{t('experience.parttime1.company')}</h4>
-                    </VerticalTimelineElement>
+          <div className="space-y-12">
+            {items.map((it, i) => {
+              const isLeft = i % 2 === 0;
+              return (
+                <motion.div
+                  key={it.key}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: i * 0.05 }}
+                  className="relative md:grid md:grid-cols-2 md:gap-10"
+                >
+                  {/* Dot */}
+                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 w-8 h-8 rounded-full bg-white dark:bg-dark-bg border-2 border-brand-500 flex items-center justify-center shadow-glow z-10">
+                    <FaBriefcase className="text-brand-600 dark:text-brand-300" size={12} />
+                  </div>
 
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ 
-                            background: currentColors.pink, 
-                            color: '#ffffff',
-                            boxShadow: isDarkMode ? '0 4px 8px rgba(236, 72, 153, 0.3)' : '0 4px 8px rgba(233, 30, 99, 0.3)'
-                        }}
-                        contentArrowStyle={{ borderRight: `7px solid ${currentColors.pink}` }}
-                        date={<span style={{ color: currentColors.pink }}>{t('experience.parttime2.date')}</span>}
-                        iconStyle={{ 
-                            background: currentColors.pink, 
-                            color: '#ffffff',
-                            boxShadow: isDarkMode ? '0 0 0 3px rgba(236, 72, 153, 0.3)' : '0 0 0 3px rgba(233, 30, 99, 0.3)'
-                        }}
-                        icon={<FaBriefcase />}
-                    >
-                        <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>{t('experience.parttime2.title')}</h3>
-                        <h4 className="vertical-timeline-element-subtitle" style={{ color: '#ffffff' }}>{t('experience.parttime2.company')}</h4>
-                    </VerticalTimelineElement>
-
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ 
-                            background: currentColors.green, 
-                            color: '#ffffff',
-                            boxShadow: isDarkMode ? '0 4px 8px rgba(16, 185, 129, 0.3)' : '0 4px 8px rgba(76, 175, 80, 0.3)'
-                        }}
-                        contentArrowStyle={{ borderRight: `7px solid ${currentColors.green}` }}
-                        date={<span style={{ color: currentColors.green }}>{t('experience.intern2.date')}</span>}
-                        iconStyle={{ 
-                            background: currentColors.green, 
-                            color: '#ffffff',
-                            boxShadow: isDarkMode ? '0 0 0 3px rgba(16, 185, 129, 0.3)' : '0 0 0 3px rgba(76, 175, 80, 0.3)'
-                        }}
-                        icon={<FaBriefcase />}
-                    >
-                        <h3 className="vertical-timeline-element-title" style={{ color: '#ffffff' }}>{t('experience.intern2.title')}</h3>
-                        <h4 className="vertical-timeline-element-subtitle" style={{ color: '#ffffff' }}>{t('experience.intern2.company')}</h4>
-                    </VerticalTimelineElement>
-                </VerticalTimeline>
-            </div>
-        </section>
-    );
+                  <div
+                    className={`pl-14 md:pl-0 ${
+                      isLeft
+                        ? 'md:col-start-1 md:pr-10 md:text-right'
+                        : 'md:col-start-2 md:pl-10'
+                    }`}
+                  >
+                    <div className="bg-white dark:bg-dark-card rounded-2xl p-6 shadow-lg border border-slate-200/60 dark:border-dark-border card-hover">
+                      <div
+                        className={`inline-block h-1 w-12 rounded-full bg-gradient-to-r ${it.accent} mb-3`}
+                      />
+                      <p className="font-mono text-xs text-slate-500 dark:text-dark-textSecondary">
+                        {it.date}
+                      </p>
+                      <h3 className="mt-1 text-lg font-display font-semibold text-slate-900 dark:text-dark-text">
+                        {it.title}
+                      </h3>
+                      <p className="text-sm text-brand-600 dark:text-brand-300">{it.company}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Experience;

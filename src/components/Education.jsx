@@ -1,56 +1,73 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { FaGraduationCap } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
 function Education() {
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        threshold: 0.2,
-    });
-    const { t } = useTranslation();
+  const { t } = useTranslation();
+  const details = t('education.details', { returnObjects: true });
 
-    const education = [
-        {
-            degree: t('education.degree'),
-            institution: t('education.institution'),
-            period: t('education.period'),
-            details: t('education.details', { returnObjects: true }),
-        },
-    ];
+  return (
+    <section
+      id="education"
+      className="py-24 bg-white dark:bg-dark-surface transition-colors duration-300"
+    >
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <p className="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-300">
+            {t('sections.education.eyebrow')}
+          </p>
+          <h2 className="section-title mt-2 text-4xl md:text-5xl text-slate-900 dark:text-dark-text">
+            {t('sections.education.headlineA')} <span className="text-gradient">{t('sections.education.headlineB')}</span>
+          </h2>
+        </motion.div>
 
-    return (
-        <section id="education" className="py-20 bg-gray-100 dark:bg-dark-bg transition-colors duration-200" ref={ref}>
-            <motion.h2 
-                className="text-3xl font-bold text-teal-600 dark:text-dark-accent text-center transition-colors duration-200"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                transition={{ duration: 1 }}
-            >
-                {t('navbar.education')}
-            </motion.h2>
-            <div className="mt-10 ml-10 mr-10">
-                {education.map((edu, index) => (
-                    <motion.div 
-                        key={index} 
-                        className="bg-white dark:bg-dark-card shadow-md p-6 rounded-lg mb-6 transition-colors duration-200"
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                        transition={{ duration: 0.8, delay: index * 0.2 }}
-                    >
-                        <h3 className="text-lg font-semibold text-teal-500 dark:text-dark-accent transition-colors duration-200">{edu.degree}</h3>
-                        <h4 className="text-sm text-gray-600 dark:text-dark-textSecondary transition-colors duration-200">{edu.institution}</h4>
-                        <p className="text-sm text-gray-500 dark:text-dark-textSecondary mb-2 transition-colors duration-200">{edu.period}</p>
-                        <ul className="list-disc list-inside text-gray-700 dark:text-dark-text transition-colors duration-200">
-                            {edu.details.map((detail, i) => (
-                                <li key={i}>{detail}</li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                ))}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-3xl mx-auto"
+        >
+          <div className="relative bg-white dark:bg-dark-card rounded-2xl p-8 shadow-lg border border-slate-200/60 dark:border-dark-border card-hover overflow-hidden">
+            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-brand-500/20 to-accent-500/20 blur-2xl" />
+            <div className="relative flex items-start gap-5">
+              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center text-white shadow-glow">
+                <FaGraduationCap size={28} />
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="text-xl font-display font-semibold text-slate-900 dark:text-dark-text">
+                    {t('education.degree')}
+                  </h3>
+                  <span className="font-mono text-xs px-2 py-1 rounded-full bg-brand-500/10 text-brand-700 dark:text-brand-300 border border-brand-500/20">
+                    {t('education.period')}
+                  </span>
+                </div>
+                <p className="text-sm text-slate-500 dark:text-dark-textSecondary mt-1">
+                  {t('education.institution')}
+                </p>
+                <ul className="mt-4 space-y-2 text-slate-700 dark:text-dark-text">
+                  {details.map((d, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-brand-500 to-accent-500 flex-shrink-0" />
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-        </section>
-    );
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
 
 export default Education;
