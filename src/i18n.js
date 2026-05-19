@@ -114,16 +114,6 @@ const resources = {
             demo: 'https://youtu.be/udNuJvmDvvk'
           },
           {
-            title: 'Conference Management System',
-            location: 'İzmir, Turkey',
-            date: 'Feb 2024 – Jun 2024',
-            description: [
-              'Full‑stack platform for managing conferences — paper submissions, reviews and participant registration.'
-            ],
-            tech: ['Spring Boot', 'MySQL', 'Firebase'],
-            repo: 'https://github.com/berkayblm/Conference_Management_System'
-          },
-          {
             title: 'Library App',
             location: 'İzmir, Turkey',
             date: 'Feb 2023 – Apr 2023',
@@ -288,16 +278,6 @@ const resources = {
             ],
             tech: ['Android', 'Spring Boot', 'PostgreSQL', 'Redis', 'Cloud'],
             demo: 'https://youtu.be/udNuJvmDvvk'
-          },
-          {
-            title: 'Konferans Yönetim Sistemi',
-            location: 'İzmir, Türkiye',
-            date: 'Şub 2024 – Haz 2024',
-            description: [
-              'Makale gönderimi, değerlendirme ve katılımcı kaydı için tam kapsamlı bir konferans yönetim platformu.'
-            ],
-            tech: ['Spring Boot', 'MySQL', 'Firebase'],
-            repo: 'https://github.com/berkayblm/Conference_Management_System'
           },
           {
             title: 'Kütüphane Uygulaması',
